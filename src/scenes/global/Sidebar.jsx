@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { ProSidebar, Menu, MenuItem } from "react-pro-sidebar";
+import { ProSidebarProvider, Menu, MenuItem } from "react-pro-sidebar";
 // import "react-pro-sidebar/dist/css/styles.css";
 import { Box, IconButton, Typography, useTheme } from "@mui/material";
 import { Link } from "react-router-dom";
@@ -35,8 +35,43 @@ const Sidebar = () => {
         "& .pro-inner-item": {
           padding: "5px 35px 5px 20px !important",
         },
+        "& .pro-inner-item:hover": {
+          color: "#868dfb !important",
+        },
+        "& .pro-inner-item:active": {
+          color: "#6870fa !important",
+        },
       }}
-    ></Box>
+    >
+      <ProSidebarProvider collapsed={isCollapsed}>
+        <Menu iconShape="square">
+          {/* LOGO AND MENU ICON */}
+          <MenuItem
+            onClick={() => setIsCollapsed(!isCollapsed)}
+            icon={
+              isCollapsed ? <MenuOutlinedIcon></MenuOutlinedIcon> : undefined
+            }
+            style={{ margin: "10px 0 20px 0", color: colors.grey[100] }}
+          >
+            {!isCollapsed && (
+              <Box
+                display="flex"
+                justifyContent="space-between"
+                alignItems="center"
+                ml="15px"
+              >
+                <Typography variant="h3" color={colors.grey[100]}>
+                  ADMINS
+                </Typography>
+                <IconButton onClick={() => setIsCollapsed(!isCollapsed)}>
+                  <MenuOutlinedIcon></MenuOutlinedIcon>
+                </IconButton>
+              </Box>
+            )}
+          </MenuItem>
+        </Menu>
+      </ProSidebarProvider>
+    </Box>
   );
 };
 
