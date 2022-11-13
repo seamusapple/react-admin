@@ -13,7 +13,7 @@ import FAQ from "./scenes/faq";
 import Bar from "./scenes/bar";
 import Pie from "./scenes/pie";
 import Line from "./scenes/line";
-// import Geography from "./scenes/geography";
+import Geography from "./scenes/geography";
 
 function App() {
   const [theme, colorMode] = useMode();
@@ -37,10 +37,10 @@ function App() {
               <Route path="/bar" element={<Bar></Bar>}></Route>
               <Route path="/pie" element={<Pie></Pie>}></Route>
               <Route path="/line" element={<Line></Line>}></Route>
-              {/* <Route
+              <Route
                 path="/geography"
                 element={<Geography></Geography>}
-              ></Route> */}
+              ></Route>
             </Routes>
           </main>
         </div>
