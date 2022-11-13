@@ -1,9 +1,9 @@
 import { ResponsiveLine } from "@nivo/line";
-import { tokens } from "../theme";
 import { useTheme } from "@mui/material";
+import { tokens } from "../theme";
 import { mockLineData as data } from "../data/mockData";
 
-const LineChart = (isDashboard = false) => {
+const LineChart = ({ isCustomLineColors = false, isDashboard = false }) => {
   const theme = useTheme();
   const colors = tokens(theme.palette.mode);
 
@@ -39,7 +39,7 @@ const LineChart = (isDashboard = false) => {
         },
         tooltip: {
           container: {
-            color: colors.grey[100],
+            color: colors.primary[500],
           },
         },
       }}
@@ -59,7 +59,7 @@ const LineChart = (isDashboard = false) => {
       axisRight={null}
       axisBottom={{
         orient: "bottom",
-        tickSize: 5,
+        tickSize: 0,
         tickPadding: 5,
         tickRotation: 0,
         legend: isDashboard ? undefined : "transportation",
@@ -69,7 +69,7 @@ const LineChart = (isDashboard = false) => {
       axisLeft={{
         orient: "left",
         tickValues: 5,
-        tickSize: 5,
+        tickSize: 3,
         tickPadding: 5,
         tickRotation: 0,
         legend: isDashboard ? undefined : "count",
@@ -78,7 +78,7 @@ const LineChart = (isDashboard = false) => {
       }}
       enableGridX={false}
       enableGridY={false}
-      pointSize={10}
+      pointSize={8}
       pointColor={{ theme: "background" }}
       pointBorderWidth={2}
       pointBorderColor={{ from: "serieColor" }}
