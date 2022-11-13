@@ -7,7 +7,6 @@ import Header from "../../components/Header";
 const Invoices = () => {
   const theme = useTheme();
   const colors = tokens(theme.palette.mode);
-
   const columns = [
     { field: "id", headerName: "ID" },
     {
@@ -30,11 +29,11 @@ const Invoices = () => {
       field: "cost",
       headerName: "Cost",
       flex: 1,
-      renderCell: (params) => {
+      renderCell: (params) => (
         <Typography color={colors.greenAccent[500]}>
           ${params.row.cost}
-        </Typography>;
-      },
+        </Typography>
+      ),
     },
     {
       field: "date",
@@ -50,9 +49,15 @@ const Invoices = () => {
         m="40px 0 0 0"
         height="75vh"
         sx={{
-          "& .MuiDataGrid-root": { border: "none" },
-          "& .MuiDataGrid-cell": { borderBottom: "none" },
-          "& .name-column--cell": { color: colors.greenAccent[300] },
+          "& .MuiDataGrid-root": {
+            border: "none",
+          },
+          "& .MuiDataGrid-cell": {
+            borderBottom: "none",
+          },
+          "& .name-column--cell": {
+            color: colors.greenAccent[300],
+          },
           "& .MuiDataGrid-columnHeaders": {
             backgroundColor: colors.blueAccent[700],
             borderBottom: "none",
@@ -65,7 +70,7 @@ const Invoices = () => {
             backgroundColor: colors.blueAccent[700],
           },
           "& .MuiCheckbox-root": {
-            colors: `${colors.greenAccent[200]} !important`,
+            color: `${colors.greenAccent[200]} !important`,
           },
         }}
       >

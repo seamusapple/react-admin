@@ -10,7 +10,6 @@ import Header from "../../components/Header";
 const Team = () => {
   const theme = useTheme();
   const colors = tokens(theme.palette.mode);
-
   const columns = [
     { field: "id", headerName: "ID" },
     {
@@ -37,7 +36,7 @@ const Team = () => {
       flex: 1,
     },
     {
-      field: "access",
+      field: "accessLevel",
       headerName: "Access Level",
       flex: 1,
       renderCell: ({ row: { access } }) => {
@@ -51,6 +50,8 @@ const Team = () => {
             backgroundColor={
               access === "admin"
                 ? colors.greenAccent[600]
+                : access === "manager"
+                ? colors.greenAccent[700]
                 : colors.greenAccent[700]
             }
             borderRadius="4px"
@@ -74,9 +75,15 @@ const Team = () => {
         m="40px 0 0 0"
         height="75vh"
         sx={{
-          "& .MuiDataGrid-root": { border: "none" },
-          "& .MuiDataGrid-cell": { borderBottom: "none" },
-          "& .name-column--cell": { color: colors.greenAccent[300] },
+          "& .MuiDataGrid-root": {
+            border: "none",
+          },
+          "& .MuiDataGrid-cell": {
+            borderBottom: "none",
+          },
+          "& .name-column--cell": {
+            color: colors.greenAccent[300],
+          },
           "& .MuiDataGrid-columnHeaders": {
             backgroundColor: colors.blueAccent[700],
             borderBottom: "none",
@@ -88,9 +95,12 @@ const Team = () => {
             borderTop: "none",
             backgroundColor: colors.blueAccent[700],
           },
+          "& .MuiCheckbox-root": {
+            color: `${colors.greenAccent[200]} !important`,
+          },
         }}
       >
-        <DataGrid rows={mockDataTeam} columns={columns}></DataGrid>
+        <DataGrid checkboxSelection rows={mockDataTeam} columns={columns} />
       </Box>
     </Box>
   );

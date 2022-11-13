@@ -2,7 +2,6 @@ import { Box } from "@mui/material";
 import { DataGrid, GridToolbar } from "@mui/x-data-grid";
 import { tokens } from "../../theme";
 import { mockDataContacts } from "../../data/mockData";
-
 import Header from "../../components/Header";
 import { useTheme } from "@mui/material";
 
@@ -48,7 +47,7 @@ const Contacts = () => {
     },
     {
       field: "zipCode",
-      headerName: "ZipCode",
+      headerName: "Zip Code",
       flex: 1,
     },
   ];
@@ -63,9 +62,15 @@ const Contacts = () => {
         m="40px 0 0 0"
         height="75vh"
         sx={{
-          "& .MuiDataGrid-root": { border: "none" },
-          "& .MuiDataGrid-cell": { borderBottom: "none" },
-          "& .name-column--cell": { color: colors.greenAccent[300] },
+          "& .MuiDataGrid-root": {
+            border: "none",
+          },
+          "& .MuiDataGrid-cell": {
+            borderBottom: "none",
+          },
+          "& .name-column--cell": {
+            color: colors.greenAccent[300],
+          },
           "& .MuiDataGrid-columnHeaders": {
             backgroundColor: colors.blueAccent[700],
             borderBottom: "none",
